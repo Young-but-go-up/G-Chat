@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 ThemeData appTheme = ThemeData(
   useMaterial3: true,
@@ -16,17 +15,14 @@ ThemeData appTheme = ThemeData(
     onSurface: Colors.grey.shade300,
   ),
   scaffoldBackgroundColor: Colors.white,
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     elevation: 0,
-    color: Colors.transparent,
-    foregroundColor: Colors.black,
-    systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness.light,
-      statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: Colors.white,
-      systemNavigationBarIconBrightness: Brightness.dark,
-      systemNavigationBarDividerColor: Colors.transparent,
-    ),
+    color: Colors.grey.shade300,
+  ),
+  dividerTheme: DividerThemeData(
+    color: Colors.grey.shade800,
+    thickness: 2,
+    endIndent: 50,
+    indent: 50,
   ),
 );

@@ -1,6 +1,6 @@
 class ChatModel {
   String id;
-  String? content;
+  dynamic content;
   dynamic image;
   ChatModel({
     required this.id,

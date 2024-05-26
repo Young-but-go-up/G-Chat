@@ -23,9 +23,10 @@ class MyApp extends StatelessWidget {
         systemNavigationBarDividerColor: Colors.transparent,
       ),
     );
-
     return MaterialApp(
-      title: 'GemiStud ChatBot',
+      themeAnimationDuration: const Duration(milliseconds: 750),
+      themeAnimationCurve: Curves.easeInOut,
+      title: 'G-Chat',
       theme: appTheme,
       home: const HomePage(),
     );

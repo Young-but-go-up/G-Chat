@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'model/chat_model.dart';
+import 'chat/model/chat_model.dart';
 
 class MyListNotifier extends ValueNotifier<List<ChatModel>> {
   MyListNotifier() : super([]);
@@ -10,3 +10,7 @@ class MyListNotifier extends ValueNotifier<List<ChatModel>> {
     notifyListeners(); // Notify listeners of the change
   }
 }
+
+ValueNotifier promoIndex = ValueNotifier(null);
+ValueNotifier courseIndex = ValueNotifier(null);
+ValueNotifier langueIndex = ValueNotifier(null);
