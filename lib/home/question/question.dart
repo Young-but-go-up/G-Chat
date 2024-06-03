@@ -232,7 +232,7 @@ class _QuestionPageState extends State<QuestionPage> {
     }
   }
 
-  final apiKey = 'AIzaSyASVWp96MAw_pUTrPBsqOz5bbwMh7IDqcU';
+  final apiKey = '';
 
   Future<void> geminiChat({
     String? nomUtilisateur,
