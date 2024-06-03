@@ -224,7 +224,7 @@ class _BottomChatViewState extends State<BottomChatView> {
     }
   }
 
-  final apiKey = 'AIzaSyASVWp96MAw_pUTrPBsqOz5bbwMh7IDqcU';
+  final apiKey = '';
 
   void geminiChat(String content, {File? img, Uint8List? imgB}) async {
     setState(() {
