@@ -8,7 +8,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
-import '../notifier.dart';
+import '../../shared/notifier.dart';
 import 'widgets/choises.dart';
 import 'widgets/head_view.dart';
 import 'widgets/photo_view.dart';
@@ -24,7 +24,7 @@ class _QuestionPageState extends State<QuestionPage> {
   bool isWeb = kIsWeb;
   bool hasFile = false;
   bool isStreaming = false;
-  dynamic photoFile, photoUrl, geminiResponse;
+  dynamic photoFile, photoUrl, photoFileB, geminiResponse;
   ScrollController controller = ScrollController();
 
   @override
@@ -93,16 +93,15 @@ class _QuestionPageState extends State<QuestionPage> {
                       promoIndex.value != null &&
                       courseIndex.value != null &&
                       langueIndex.value != null &&
-                      photoFile != null) {
+                      (photoFile != null || photoFileB != null)) {
                     try {
-                      print("Taper");
                       await geminiChat(
                         nomUtilisateur: "Georges Byona",
                         promo: promo[promoIndex.value],
                         cours: courses1[courseIndex.value],
                         langue: langues[langueIndex.value],
                         img: photoFile,
-                        imgB: photoFile,
+                        imgB: photoFileB,
                       );
                       photoFile = null;
                       photoUrl = null;
@@ -218,7 +217,7 @@ class _QuestionPageState extends State<QuestionPage> {
           final fileBytes = result.files.first.bytes;
           String base64EncodedData = base64Encode(fileBytes!);
           String dataUrl = 'data:image/png;base64,$base64EncodedData';
-          photoFile = fileBytes;
+          photoFileB = fileBytes;
           photoUrl = dataUrl;
         } else {
           final file = File(result.files.single.path!);

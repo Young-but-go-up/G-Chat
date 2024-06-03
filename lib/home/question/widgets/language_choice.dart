@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../notifier.dart';
+import '../../../shared/notifier.dart';
 
-class CoursesChoice extends StatefulWidget {
-  const CoursesChoice(
-      {super.key, required this.selectionOff, required this.courses});
-  final bool selectionOff;
+class LanguageChoice extends StatefulWidget {
+  const LanguageChoice({super.key, required this.courses});
+
   final List courses;
   @override
-  State<CoursesChoice> createState() => _CoursesChoiceState();
+  State<LanguageChoice> createState() => _LanguageChoiceState();
 }
 
-class _CoursesChoiceState extends State<CoursesChoice> {
+class _LanguageChoiceState extends State<LanguageChoice> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
@@ -23,12 +22,12 @@ class _CoursesChoiceState extends State<CoursesChoice> {
         children: List.generate(
           widget.courses.length,
           (index) => GestureDetector(
-            onTap: () => widget.selectionOff ? null : onSelectCourse(index),
+            onTap: () => onSelectLanguage(index),
             child: Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               decoration: BoxDecoration(
-                color: courseIndex.value == index && !widget.selectionOff
+                color: langueIndex.value == index
                     ? Colors.grey.shade300
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(50),
@@ -40,7 +39,7 @@ class _CoursesChoiceState extends State<CoursesChoice> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (courseIndex.value == index && !widget.selectionOff) ...{
+                  if (langueIndex.value == index) ...{
                     const Icon(Icons.check_rounded, size: 18),
                     const SizedBox(width: 2),
                   },
@@ -62,11 +61,11 @@ class _CoursesChoiceState extends State<CoursesChoice> {
     );
   }
 
-  void onSelectCourse(index) {
+  void onSelectLanguage(index) {
     setState(() {
-      courseIndex.value != index
-          ? courseIndex.value = index
-          : courseIndex.value = null;
+      langueIndex.value != index
+          ? langueIndex.value = index
+          : langueIndex.value = null;
     });
   }
 }

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../notifier.dart';
+import '../../../shared/notifier.dart';
 
-class PromoChoice extends StatefulWidget {
-  const PromoChoice({super.key, required this.courses});
-
+class CoursesChoice extends StatefulWidget {
+  const CoursesChoice(
+      {super.key, required this.selectionOff, required this.courses});
+  final bool selectionOff;
   final List courses;
   @override
-  State<PromoChoice> createState() => _PromoChoiceState();
+  State<CoursesChoice> createState() => _CoursesChoiceState();
 }
 
-class _PromoChoiceState extends State<PromoChoice> {
+class _CoursesChoiceState extends State<CoursesChoice> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
@@ -22,12 +23,12 @@ class _PromoChoiceState extends State<PromoChoice> {
         children: List.generate(
           widget.courses.length,
           (index) => GestureDetector(
-            onTap: () => onSelectPromo(index),
+            onTap: () => widget.selectionOff ? null : onSelectCourse(index),
             child: Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               decoration: BoxDecoration(
-                color: promoIndex.value == index
+                color: courseIndex.value == index && !widget.selectionOff
                     ? Colors.grey.shade300
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(50),
@@ -39,7 +40,7 @@ class _PromoChoiceState extends State<PromoChoice> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (promoIndex.value == index) ...{
+                  if (courseIndex.value == index && !widget.selectionOff) ...{
                     const Icon(Icons.check_rounded, size: 18),
                     const SizedBox(width: 2),
                   },
@@ -61,11 +62,11 @@ class _PromoChoiceState extends State<PromoChoice> {
     );
   }
 
-  void onSelectPromo(index) {
+  void onSelectCourse(index) {
     setState(() {
-      promoIndex.value != index
-          ? promoIndex.value = index
-          : promoIndex.value = null;
+      courseIndex.value != index
+          ? courseIndex.value = index
+          : courseIndex.value = null;
     });
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'widgets/bottom_chat_view.dart';
 import 'widgets/body_chat_view.dart';
-import '../notifier.dart';
+import '../../shared/notifier.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});

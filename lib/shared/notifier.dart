@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'chat/model/chat_model.dart';
+import '../home/chat/model/chat_model.dart';
 
 class MyListNotifier extends ValueNotifier<List<ChatModel>> {
   MyListNotifier() : super([]);

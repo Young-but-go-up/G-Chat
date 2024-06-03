@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../notifier.dart';
+import '../../../shared/notifier.dart';
 
 class ChatView extends StatelessWidget {
   const ChatView({

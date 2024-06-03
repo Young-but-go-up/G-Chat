@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../notifier.dart';
+import '../../../shared/notifier.dart';
 import 'chat_view.dart';
 
 class BodyChatView extends StatefulWidget {

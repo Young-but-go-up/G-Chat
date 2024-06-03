@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../notifier.dart';
+import '../../../shared/notifier.dart';
 
-class LanguageChoice extends StatefulWidget {
-  const LanguageChoice({super.key, required this.courses});
+class PromoChoice extends StatefulWidget {
+  const PromoChoice({super.key, required this.courses});
 
   final List courses;
   @override
-  State<LanguageChoice> createState() => _LanguageChoiceState();
+  State<PromoChoice> createState() => _PromoChoiceState();
 }
 
-class _LanguageChoiceState extends State<LanguageChoice> {
+class _PromoChoiceState extends State<PromoChoice> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
@@ -22,12 +22,12 @@ class _LanguageChoiceState extends State<LanguageChoice> {
         children: List.generate(
           widget.courses.length,
           (index) => GestureDetector(
-            onTap: () => onSelectLanguage(index),
+            onTap: () => onSelectPromo(index),
             child: Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               decoration: BoxDecoration(
-                color: langueIndex.value == index
+                color: promoIndex.value == index
                     ? Colors.grey.shade300
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(50),
@@ -39,7 +39,7 @@ class _LanguageChoiceState extends State<LanguageChoice> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (langueIndex.value == index) ...{
+                  if (promoIndex.value == index) ...{
                     const Icon(Icons.check_rounded, size: 18),
                     const SizedBox(width: 2),
                   },
@@ -61,11 +61,11 @@ class _LanguageChoiceState extends State<LanguageChoice> {
     );
   }
 
-  void onSelectLanguage(index) {
+  void onSelectPromo(index) {
     setState(() {
-      langueIndex.value != index
-          ? langueIndex.value = index
-          : langueIndex.value = null;
+      promoIndex.value != index
+          ? promoIndex.value = index
+          : promoIndex.value = null;
     });
   }
 }

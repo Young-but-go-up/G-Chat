@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'home.dart';
-import 'theme.dart';
+import 'home/home.dart';
+import 'shared/theme.dart';
 
 void main() {
   runApp(const MyApp());
